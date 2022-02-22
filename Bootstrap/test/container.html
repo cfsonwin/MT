@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>use container</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <style>
+        .row{
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+        .row .row{
+            margin-top: 20px;
+            margin-bottom: 0%;
+        }
+        [class*="col-"]{
+            padding-top: 15px;
+            padding-bottom: 15px;
+            background-color: grey;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-sm">
+        <div class="row">
+            <div class="col-sm-4">col-4 </div>
+            <div class="col-sm-4">col-4 </div>
+            <div class="col-sm-4">col-4 </div>  
+        </div>
+    </div>
+    <div class="container-lg">
+        <div class="row">
+            <div class="col-sm-4">col-4 </div>
+            <div class="col-sm-4">col-4 </div>
+            <div class="col-sm-4">col-4 </div>  
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-1">One of three columns</div>
+            <div class="col-2">One of three columns</div>
+            <div class="col-3">One of three columns</div>
+            <div class="col-4">One of three columns</div>
+            <div class="col-4">One of three columns</div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-3">One of three columns</div>
+            <div class="col-md-3">One of three columns</div>
+            <div class="col-md-3">One of three columns</div>
+            <div class="col-md-3">One of three columns</div>
+        </div>
+        <div class="row">
+            <div class="col-4 offset-4">One of three columns</div>
+        </div>
+        <div class="row">
+            <div class="col-8 offset-2">
+                One of three columns
+                <div class="row">
+                    <div class="col-2">
+                        One of columns
+                    </div>
+                    <div class="col-2">
+                        One of columns
+                    </div>
+                    <div class="col-2">
+                        One of columns
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3 col-sm-push-4">l</div>
+            <div class="col-sm-4 col-sm-pull-3">m</div>
+        </div>
+    </div>
+    
+</body>
+</html>
