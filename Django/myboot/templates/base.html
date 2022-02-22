@@ -1,0 +1,80 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css'%}">
+    <!-- Bootstrap CSS -->
+    {% block css %}
+    {% endblock css %}
+    {% block jshd %}
+    {% endblock jshd %}
+    <title>Myboot | {% block title %}{% endblock title %}</title>
+  </head>
+  <body>
+  <nav class="navbar  navbar-expand-md navbar-light bg-light"  role="navigation" >
+    <div class="container-fluid">
+      <div class="navbar-header pt-1">
+        <a class="navbar-brand" href="{% url 'mindex' %}">
+          <img src="{% static 'image/marker.svg'%}" width="30" height="30" class="d-inline-block align-top" alt="">
+          MvP<small class="text-muted" style="font-size:60%"> Manage your own Virtual Products</small>
+        </a>
+      </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedHomepage" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedHomepage">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Select
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="{% url 'mForm' %}">Form</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+          </li>
+        </ul>
+        <ul class="navbar-nav">
+          {% block nav_item_active %}
+          {% endblock nav_item_active %}
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+          <!--
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#">Disabled</a>
+          </li>
+
+
+
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+        -->
+
+    <!-- -->
+    <div class="container-fluid">
+        {% block main_content %}
+        {% endblock main_content %}
+    </div>
+    <script src="{% static 'jquery.slim.min.js'%}"></script>
+    <script src="{% static 'bootstrap.min.js'%}"></script>
+    {% block jsbd %}
+    {% endblock jsbd %}
+
+    <!--
+    <script>
+      $(document).off(".dropdown.data-api");
+      </>script>
+    -->
+  </body>
+</html>
