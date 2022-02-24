@@ -17,4 +17,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('', include('boottest.urls')),
+    path('', include('myadmin.urls')),
+    path('', include('myuser.urls')),
 ]

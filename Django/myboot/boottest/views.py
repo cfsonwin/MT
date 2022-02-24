@@ -5,8 +5,10 @@ from django.shortcuts import render
 def index(request):
     return render(request, 'boottest/index.html')
 
-def link1(request):
+
+def signin(request):
     return render(request, 'boottest/Signin.html')
 
-def myform(request):
-    return render(request, 'boottest/MyForm.html')
+
+def signup(request):
+    return render(request, 'boottest/Signup.html')
