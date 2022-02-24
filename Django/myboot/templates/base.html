@@ -18,10 +18,10 @@
     <nav class="navbar sticky-top navbar-expand-md navbar-dark bg-dark"  role="navigation" >
       <div class="container-fluid">
         <div class="navbar-header pt-1">
-          <a class="navbar-brand" href="{% url 'mindex' %}">
-            <img src="{% static 'image/marker-dark.svg'%}" width="30" height="30" class="d-inline-block align-top" alt="">
-            MvP<small class="text-muted" style="font-size:60%"> Manage your own Virtual Products</small>
-          </a>
+          {% block brand %}
+
+          {% endblock brand %}
+
         </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -43,33 +43,9 @@
     </nav>
     <div class="container-fluid">
       <div class="row">
-        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block navbar-light bg-light sidebar collapse">
-          <div class="sidebar-sticky pt-3 pl-3">
-            <ul class="navbar-nav flex-column">
-              <li class="nav-item">
-                <a class="nav-link active" href="#">
-                  <span data-feather="home"></span>
-                  Dashboard <span class="sr-only">(current)</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="file"></span>
-                  Constructors
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="shopping-cart"></span>
+        {% block sidebar %}
+        {% endblock sidebar %}
 
-                </a>
-              </li>
-
-
-            </ul>
-
-          </div>
-        </nav>
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
           {% block main_content %}
           {% endblock main_content %}

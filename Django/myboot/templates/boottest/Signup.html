@@ -15,7 +15,12 @@ Sign Up
 
 {% block jshd %}
 {% endblock jshd %}
-
+{% block brand %}
+<a class="navbar-brand" href="{% url 'msignin' %}">
+  <img src="{% static 'image/marker-dark.svg'%}" width="30" height="30" class="d-inline-block align-top" alt="">
+  MvP<small class="text-muted" style="font-size:60%"> Manage your own Virtual Products</small>
+</a>
+{% endblock brand %}
 {% block nav_item_active %}
 <li class="nav-item">
   <a class="nav-link"  href="{% url 'msignin' %}">Log in</a>

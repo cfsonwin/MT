@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+boot test
+{% endblock title %}
+
+{% block css %}
+<!--
+<link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css'%}">
+-->
+{% endblock css %}
+
+{% block jshd %}
+{% endblock jshd %}
+
+
+{% block nav_item_active %}
+<!--
+<li class="nav-item active">
+  <a class="nav-link" href="{% url 'mindex' %}">Home <span class="sr-only">(current)</span></a>
+</li>
+-->
+{% endblock nav_item_active %}
+
+{% block brand %}
+<a class="navbar-brand" href="{% url 'mAD_index' %}">
+  <img src="{% static 'image/marker-dark.svg'%}" width="30" height="30" class="d-inline-block align-top" alt="">
+  MvP<small class="text-muted" style="font-size:60%"> Manage your own Virtual Products</small>
+</a>
+{% endblock brand %}
+
+{% block sidebar %}
+<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block navbar-light bg-light sidebar collapse">
+  <div class="sidebar-sticky pt-3 pl-3">
+    <ul class="navbar-nav flex-column">
+      <li class="nav-item">
+        <a class="nav-link active" href="{% url 'mAD_index' %}">
+          <span data-feather="home"></span>
+          Dashboard <span class="sr-only">(current)</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'mAD_user' %}">
+          <span data-feather="file"></span>
+          Constructors
+        </a>
+      </li>
+
+    </ul>
+  </div>
+</nav>
+{% endblock sidebar %}
+
+{% block main_content %}
+Welcome Management system
+{% endblock main_content %}
+
+{% block jsbd %}
+
+{% endblock jsbd %}

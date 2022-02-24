@@ -35,10 +35,9 @@
     <nav class="navbar sticky-top navbar-expand-md navbar-light bg-light" role="navigation" >
       <div class="container-fluid">
         <div class="navbar-header pt-1">
-          <a class="navbar-brand" href="{% url 'mindex' %}">
-            <img src="{% static 'image/marker.svg'%}" width="30" height="30" class="d-inline-block align-top" alt="">
-            MvP<small class="text-muted" style="font-size:60%"> Manage your own Virtual Products</small>
-          </a>
+          {% block brand %}
+
+          {% endblock brand %}
         </div>
         <button class="navbar-toggler navbar-right" type="button" data-toggle="collapse" data-target="#navbarSupportedsignin" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
