@@ -1,0 +1,35 @@
+{% extends "myadmin/product/Product_base.html" %}
+{% load static %}
+
+{% block title %}
+User list
+{% endblock title %}
+
+{% block css %}
+<!--
+<link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css'%}">
+-->
+{% endblock css %}
+
+{% block jshd %}
+{% endblock jshd %}
+
+{% block main_content %}
+view this product: {{product.p_name}}
+<br/>
+{% for user in owners %}
+owner: {{user.u_name}}
+<br/>
+{% endfor %}
+Manufacturer:<br/>
+{% for info in m_info %}
+{{info}}
+<br/>
+{% endfor %}
+
+
+{% endblock main_content %}
+
+{% block jsbd %}
+
+{% endblock jsbd %}

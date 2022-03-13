@@ -31,7 +31,7 @@
 
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
-                Hi, Fashu Cheng
+                Hi, {{request.session.already_login.u_name}}
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <button class="btn btn-link" type="button" data-toggle="modal" data-target="#ConfirmExit" style="font-size:0.5rem;color:#000">Sign Out</button>

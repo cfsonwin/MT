@@ -1,0 +1,39 @@
+{% extends "myadmin/user/user_base.html" %}
+{% load static %}
+
+{% block title %}
+boot test
+{% endblock title %}
+
+{% block css %}
+<!--
+<link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css'%}">
+-->
+{% endblock css %}
+
+{% block jshd %}
+{% endblock jshd %}
+
+
+{% block main_content %}
+{% if update_status == 0 %}
+
+    <div class="container-md py-5 col-md-9">
+      <h3>Tips:</h3>
+      <p>{{info}}</p>
+    <a class="btn btn-dark" href="{% url 'mAD_edit' u_id %}">Retry</a>
+    </div>
+
+  {% elif update_status == 1 %}
+    <div class="container-md py-5 col-md-9">
+      <h3>Tips:</h3>
+      <p>{{info}}</p>
+      <a class="btn btn-dark" href="{% url 'mAD_user' %}">Continue</a>
+    </div>
+
+  {% endif %}
+{% endblock main_content %}
+
+{% block jsbd %}
+
+{% endblock jsbd %}

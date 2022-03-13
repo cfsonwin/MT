@@ -19,4 +19,5 @@ urlpatterns = [
     path('test/', include('boottest.urls')),
     path('Admin/', include('myadmin.urls')),
     path('', include('myuser.urls')),
+    path('ttest/', include('mytest.urls')),
 ]

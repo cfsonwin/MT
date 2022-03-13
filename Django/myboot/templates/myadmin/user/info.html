@@ -1,0 +1,31 @@
+{% extends "myadmin/user/user_base.html" %}
+{% load static %}
+
+{% block title %}
+Recovery
+{% endblock title %}
+
+{% block css %}
+<!--
+<link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css'%}">
+-->
+{% endblock css %}
+
+{% block jshd %}
+{% endblock jshd %}
+
+
+
+{% block main_content %}
+
+    <div class="container-md py-5 col-md-9">
+      <h3>Tips:</h3>
+      <p>{{info}}</p>
+      <a class="btn btn-dark" href="{% url 'mAD_user' %}">OK</a>
+    </div>
+
+{% endblock main_content %}
+
+{% block jsbd %}
+
+{% endblock jsbd %}

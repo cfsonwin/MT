@@ -1,0 +1,46 @@
+{% extends "myadmin/product/Product_base.html" %}
+{% load static %}
+
+{% block title %}
+Product list
+{% endblock title %}
+
+{% block css %}
+<!--
+<link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css'%}">
+-->
+{% endblock css %}
+
+{% block jshd %}
+{% endblock jshd %}
+
+{% block main_content %}
+
+  <div class="row">
+    {% for product in productlist %}
+    <div class="col-md-6 col-lg-4 col-xl-3 pt-5">
+      <div class="card  shadow-sm">
+        <img src="{% static 'image/card.svg'%}">
+      </div>
+      <div class="card-body bg-light">
+        <h4 class="card-text">{{ product.p_name }}</h4>
+        <p class="card-text">{{ product.description }}</p>
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="btn-group">
+            <a type="button" class="btn btn-sm btn-outline-secondary" href="{% url 'mAD_p_view' product.p_id %}">View</a>
+            <a type="button" class="btn btn-sm btn-outline-secondary">Edit</a>
+          </div>
+          <small class="text-muted">9 mins</small>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+
+
+{% endblock main_content %}
+
+{% block jsbd %}
+
+{% endblock jsbd %}

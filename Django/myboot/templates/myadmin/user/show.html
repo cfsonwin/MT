@@ -1,8 +1,8 @@
-{% extends "base.html" %}
+{% extends "myadmin/user/user_base.html" %}
 {% load static %}
 
 {% block title %}
-boot test
+User list
 {% endblock title %}
 
 {% block css %}
@@ -14,49 +14,11 @@ boot test
 {% block jshd %}
 {% endblock jshd %}
 
-
-{% block nav_item_active %}
-<!--
-<li class="nav-item active">
-  <a class="nav-link" href="{% url 'mindex' %}">Home <span class="sr-only">(current)</span></a>
-</li>
--->
-{% endblock nav_item_active %}
-
-{% block brand %}
-<a class="navbar-brand" href="{% url 'mAD_index' %}">
-  <img src="{% static 'image/marker-dark.svg'%}" width="30" height="30" class="d-inline-block align-top" alt="">
-  MvP<small class="text-muted" style="font-size:60%"> Manage your own Virtual Products</small>
-</a>
-{% endblock brand %}
-
-{% block sidebar %}
-<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block navbar-light bg-light sidebar collapse">
-  <div class="sidebar-sticky pt-3 pl-3">
-    <ul class="navbar-nav flex-column">
-      <li class="nav-item">
-        <a class="nav-link " href="{% url 'mAD_index' %}">
-          <span data-feather="home"></span>
-          Dashboard <span class="sr-only">(current)</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link active" href="{% url 'mAD_user' %}">
-          <span data-feather="file"></span>
-          Constructors
-        </a>
-      </li>
-
-    </ul>
-  </div>
-</nav>
-{% endblock sidebar %}
-
 {% block main_content %}
-<div class="table-responsive pt-5">
+<div class="table-responsive">
   <table class="table table-bordered table-striped table-sm">
     <thead>
-      <tr>
+      <tr style="font-size:.5rem">
         <th>#</th>
         <th>Name</th>
         <th>Email</th>
@@ -68,34 +30,101 @@ boot test
     </thead>
     <tbody>
     {% for user in userlist %}
-      <tr class="text-center">
-        <td>{{ user.u_id }}</td>
-        <td>{{ user.u_name }}</td>
-        <td>{{ user.Email }}</td>
-        <td>
-          {% if user.u_status == 0 %}
-            Normal
-          {% elif user.u_status == 1 %}
-            Deleted
-          {% else %}
-            Unknown status
-          {% endif %}
-        </td>
-        <td>{{ user.addtime }}</td>
-        <td>{{ user.addr }}</td>
-        <td>
-          <div class="inline" >
-            <a class="btn btn-link" href="#" style="color:#212529">Action</a>
-            |
-            <a class="btn btn-link" href="#" style="color:#212529">Action</a>
-          </div>
-        </td>
 
-      </tr>
+        {% if user.u_status == 0 %}
+        <tr class="text-center" style="font-size:.75rem">
+          <td>{{ user.u_id }}</td>
+          <td>{{ user.u_name }}</td>
+          <td>{{ user.Email }}</td>
+          <td>Normal</td>
+          <td>{{ user.addtime }}</td>
+          <td>{{ user.addr }}</td>
+          <td>
+            <div class="d-flex" >
+              <a class=" btn btn-outline-success btn-sm mr-2" href="{% url 'mAD_edit' user.u_id %}" style="color:#212529;font-size:0.5rem">Edit</a>
+              <a class=" btn btn-outline-danger btn-sm mr-2" href="{% url 'mAD_del' user.u_id %}" style="color:#212529;font-size:0.5rem">Delete</a>
+
+            </div>
+          </td>
+        </tr>
+    <!--
+      <button class="btn btn-outline-danger btn-sm mr-2" type="button" data-toggle="modal" data-target="#ConfirmDelete{{user.u_id}}" style="font-size:0.875rem;color:#212529">Delete</button>
+        <div class="modal fade" id="ConfirmDelete{{user.u_id}}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Tips</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                Are you sure to delete this record?
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">
+                  <a  style="color:#fff" href="{% url 'mAD_del' user.u_id %}">
+                    Sure
+                  </a>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+    -->
+        {% elif user.u_status == 1 %}
+        <tr class="text-center" style="color:#dc3545;font-size:.75rem" >
+          <td>{{ user.u_id }}</td>
+          <td>{{ user.u_name }}</td>
+          <td>{{ user.Email }}</td>
+          <td>Deleted</td>
+          <td>{{ user.addtime }}</td>
+          <td>{{ user.addr }}</td>
+          <td>
+            <div class="d-flex" >
+              <a class=" btn btn-outline-success btn-sm mr-2" href="{% url 'mAD_edit' user.u_id %}" style="color:#212529;font-size:0.5rem">Edit</a>
+              <a class=" btn btn-outline-danger btn-sm mr-2" href="{% url 'mAD_rec' user.u_id %}" style="color:#212529;font-size:0.5rem">Recovery</a>
+            </div>
+          </td>
+        </tr>
+    <!--
+      <button class="btn btn-outline-danger btn-sm mr-2" type="button" data-toggle="modal" data-target="#ConfirmRecovery" style="font-size:0.875rem;color:#212529">Recovery</button>
+
+        <div class="modal fade" id="ConfirmRecovery" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Tips</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                Are you sure to recovery this record?
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">
+                  <a  style="color:#fff" href="{% url 'mAD_rec' user.u_id %}">
+                    Sure
+                  </a>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+    -->
+        {% endif %}
     {% endfor %}
     </tbody>
   </table>
 </div>
+<a class="btn btn-link bg-light" style="color:#212529" href="{% url 'mAD_add' %}">
+  + Add new user
+</a>
+
+
 {% endblock main_content %}
 
 {% block jsbd %}
