@@ -14,15 +14,11 @@ class AdLoginMiddleware:
         print('url: ', request.path)
 
         # if already login
-        urllist = ['/Admin/signin/', '/Admin/dosignin/', '/Admin/signout/']
+        urllist = ['/Admin/signin/', '/Admin/dosignin/', '/Admin/signout/', '/Admin/signup/', '/Admin/signupcheck/']
         if re.match(r'^/Admin', request.path) and (request.path not in urllist):
             if 'already_login' not in request.session:
-
                 return redirect(reverse('mAD_signin'))
-
         response = self.get_response(request)
-
         # Code to be executed for each request/response after
         # the view is called.
-
         return response

@@ -33,8 +33,11 @@ urlpatterns = [
     # product
     path('product/', product.show_all, name='mAD_p_show'),
     path('product/view/<int:p_id>', product.show_details, name='mAD_p_view'),
+
     # Sign in
     path('signin/', index.signin_form, name='mAD_signin'),
     path('dosignin/', index.do_signin, name='mAD_dosignin'),
     path('signout/', index.sign_out, name='mAD_signout'),
+    path('signup/', index.signup, name='mAD_signup'),
+    path('signupcheck/', index.signup_check, name='mAD_signupcheck'),
 ]
